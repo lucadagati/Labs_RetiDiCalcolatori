@@ -43,103 +43,54 @@ Utilizza lo strumento di graficazione Grafico Sequenza-Tempo (Stevens) in Wiresh
 I tuoi contributi e feedback su questo laboratorio sono sempre ben accetti. Sentiti libero di aprire una issue o una pull request per qualsiasi suggerimento o correzione.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Soluzioni - Analisi TCP con Wireshark
 
-## 1. Indirizzo IP e Porta TCP del Computer Client
-- IP: `192.168.1.102`
-- Porta TCP: `1161`
+## TCP Basics
 
-## 2. Indirizzo IP e Porta TCP di gaia.cs.umass.edu
-- IP: `128.119.245.12`
-- Porta TCP: `80`
+### 1. Indirizzo IP e Porta TCP del Computer Client
+- **IP address**: `192.168.1.102`
+- **TCP port number**: `1161`
 
-## 3. Numero di Sequenza del Segmento TCP SYN
-- Numero di sequenza: `0`
-- Identificato come SYN: flag SYN impostato su `1`
+### 2. Indirizzo IP e Porta TCP di gaia.cs.umass.edu
+- **IP address**: `128.119.245.12`
+- **TCP port number**: `80`
 
-## 4. Numero di Sequenza del Segmento SYNACK di gaia.cs.umass.edu
-- Numero di sequenza: `0`
-- Campo ACK: `1` (determinato sommando `1` al numero di sequenza iniziale del segmento SYN del client)
+### 3. Numero di Sequenza del Segmento TCP SYN
+- **Sequence number**: `0`
+- **SYN flag**: Set to `1` (identifies the segment as a SYN segment)
 
-## 5. Numero di Sequenza del Segmento TCP con il Comando HTTP POST
-- Numero di sequenza: `1`
+### 4. Numero di Sequenza del Segmento SYNACK
+- **Sequence number**: `0`
+- **ACK field value**: `1` (calculated by adding `1` to the initial sequence number of the client's SYN segment)
+- **SYN and ACK flags**: Both set to `1` (identifies the segment as a SYNACK segment)
 
-## 6. Numeri di Sequenza dei Primi Sei Segmenti nel Collegamento TCP
-- Variano da `1` a `6406`
-- Tempi di invio e ricezione degli ACK specificati per ciascun segmento
+### 5. Numero di Sequenza del Segmento TCP con il Comando HTTP POST
+- **Sequence number**: `1`
 
-## 7. Lunghezza dei Primi Sei Segmenti TCP
-- Primo segmento (HTTP POST): `565 byte`
-- Altri cinque segmenti: `1460 byte` ciascuno
+### 6. Numeri di Sequenza dei Primi Sei Segmenti e RTT
+- **Segment numbers in trace**: 1 – 6 as No. 4, 5, 7, 8, 10, and 11.
+- **Sequence numbers**: `1`, `566`, `2026`, `3486`, `4946`, `6406`.
+- **Send times, ACK receive times, and RTT values** detailed for each segment.
+- **EstimatedRTT values** calculated using the formula: `EstimatedRTT = 0.875 * EstimatedRTT + 0.125 * SampleRTT`.
 
-## 8. Spazio Buffer Minimo Disponibile e Controllo del Mittente
-- Spazio buffer minimo: `5840 byte`
-- Nessuna limitazione del mittente per mancanza di spazio nel buffer del ricevente
+### 7. Lunghezza dei Primi Sei Segmenti TCP
+- **First TCP segment (HTTP POST)**: `565 bytes`.
+- **Other five segments**: `1460 bytes` each (MSS).
 
-## 9. Segmenti Ritrasmessi nel File di Traccia
-- Nessun segmento ritrasmesso, verificato tramite i numeri di sequenza
+### 8. Spazio Buffer Minimo Disponibile e Controllo del Mittente
+- **Minimum buffer space (receiver window)**: `5840 bytes`.
+- **No sender throttling** due to lack of receiver buffer space.
 
-## 10. Dati Riconosciuti in un ACK
-- Variabilità nei numeri di sequenza riconosciuti, con casi di riconoscimento di ogni altro segmento ricevuto
+### 9. Segmenti Ritrasmessi nel File di Traccia
+- **No retransmitted segments**, verified by sequence number analysis.
 
-## 11. Throughput della Connessione TCP
-- Throughput: circa `30.222 KByte/sec`
+### 10. Dati Riconosciuti in un ACK
+- **Acknowledged sequence numbers and acknowledged data** listed for each ACK.
+- **Identification of cases** where the receiver is ACKing every other received segment.
 
-## 12. Fasi di Slow Start e Congestion Avoidance di TCP
-- Inizio Slow Start: all'inizio della connessione
-- Non è possibile determinare con precisione la fine della Slow Start e l'inizio della Congestion Avoidance
-"""
+### 11. Throughput della Connessione TCP
+- **Throughput**: Approximately `30.222 KByte/sec`.
 
+### 12. Fasi di Slow Start e Congestion Avoidance di TCP
+- **Start of TCP Slow Start**: At the beginning of the connection.
+- **Identification of TCP slow start and congestion avoidance phases** is not precisely possible in this trace.
