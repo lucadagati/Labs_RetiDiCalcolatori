@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  p2pnode1:
+    build: .
+    volumes:
+      - ./data/node1:/data
+    ports:
+      - "8001:8000"
+    environment:
+      - LOCAL_PORT=8000
+    command: server 8000
+
+  p2pnode2:
+    build: .
+    volumes:
+      - ./data/node2:/data
+    ports:
+      - "8002:8000"
+    environment:
+      - LOCAL_PORT=8000
+    command: server 8000
+
+  p2pnode3:
+    build: .
+    volumes:
+      - ./data/node3:/data
+    ports:
+      - "8003:8000"
+    environment:
+      - LOCAL_PORT=8000
+    command: server 8000
+
+  p2pnode4:
+    build: .
+    volumes:
+      - ./data/node4:/data
+    ports:
+      - "8004:8000"
+    environment:
+      - LOCAL_PORT=8000
+    command: server 8000

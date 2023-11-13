@@ -1,0 +1,10 @@
+FROM ubuntu:latest
+
+# Installazione di Telnet e SSH
+RUN apt update && apt install -y xinetd telnetd openssh-server && apt clean
+
+# Abilitazione del servizio SSH
+RUN service ssh start
+
+# Esegui un comando per mantenere il container in esecuzione
+CMD ["tail", "-f", "/dev/null"]

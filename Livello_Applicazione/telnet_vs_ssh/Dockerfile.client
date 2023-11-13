@@ -1,0 +1,11 @@
+FROM ubuntu:latest
+
+# Installazione di SSH client, Telnet client e Wireshark
+RUN apt update && apt install -y openssh-client telnet wireshark && apt clean
+
+# Configura Wireshark
+RUN echo "wireshark-common wireshark-common/install-setuid boolean true" | debconf-set-selections \
+    && DEBIAN_FRONTEND=noninteractive apt install -y wireshark
+
+# Esegui un comando per mantenere il container in esecuzione
+CMD ["tail", "-f", "/dev/null"]

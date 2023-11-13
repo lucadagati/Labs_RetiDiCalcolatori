@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  node1:
+    build: .
+    container_name: node1
+    networks:
+      - p2pnet
+  node2:
+    build: .
+    container_name: node2
+    networks:
+      - p2pnet
+  node3:
+    build: .
+    container_name: node3
+    networks:
+      - p2pnet
+  node4:
+    build: .
+    container_name: node4
+    networks:
+      - p2pnet
+
+networks:
+  p2pnet:
