@@ -10,8 +10,8 @@ Questo progetto dimostra come configurare e utilizzare un server FTP (`vsftpd`) 
 Vai alla directory del progetto e costruisci le immagini Docker:
 
 ```bash
-docker build -t ftp-server:latest ./path/to/Dockerfile.server
-docker build -t ftp-client:latest ./path/to/Dockerfile.client
+docker build -t ftp-server:latest .
+docker build -t ftp-client:latest .
 ```
 
 ## Esecuzione del Server FTP
