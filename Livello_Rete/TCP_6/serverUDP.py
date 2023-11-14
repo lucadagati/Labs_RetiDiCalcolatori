@@ -11,5 +11,6 @@ def start_udp_server(port, file_to_save):
             if not data:
                 break
             f.write(data)
+        conn.close()
 
 start_udp_server(12346, 'received_udp_file')
