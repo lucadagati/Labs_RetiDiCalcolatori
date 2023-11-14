@@ -19,6 +19,8 @@ RUN mkdir /home/ftpuser/ftp && \
     mkdir /home/ftpuser/ftp/files && \
     chown ftpuser:ftpuser /home/ftpuser/ftp/files
 
+RUN touch /home/ftpuser/test
+
 # Configura vsftpd
 COPY vsftpd.conf /etc/vsftpd.conf
 
