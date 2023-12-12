@@ -1,7 +1,7 @@
 # Guida alla Configurazione di un Server DHCP su Linux
 
 ## Introduzione
-Questa guida è pensata per studenti e insegnanti che vogliono imparare a configurare un server DHCP in un ambiente Linux, utilizzando un'interfaccia di rete virtuale.
+Come configurare un server DHCP in un ambiente Linux, utilizzando un'interfaccia di rete virtuale.
 
 ## Prerequisiti
 - Accesso a un sistema Linux (Ubuntu/Debian è consigliato).
