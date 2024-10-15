@@ -1,4 +1,4 @@
-zone "demo.local" {
+zone "demo.test" {
     type master;
     file "/etc/bind/db.demo.local";
 };

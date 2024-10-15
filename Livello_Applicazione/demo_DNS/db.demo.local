@@ -1,14 +1,14 @@
 ;
-; BIND data file for demo.local
+; BIND data file for demo.test
 ;
-$TTL    604800
-@       IN      SOA     demo.local. root.demo.local. (
-                        20231016         ; Serial
-                             604800         ; Refresh
-                              86400         ; Retry
-                            2419200         ; Expire
-                             604800 )       ; Negative Cache TTL
+$TTL 604800
+@   IN  SOA demo.test. root.demo.test. (
+              20231016  ; Serial
+              604800    ; Refresh
+              86400     ; Retry
+              2419200   ; Expire
+              604800 )  ; Negative Cache TTL
 ;
-@       IN      NS      ns.demo.local.
-ns      IN      A       192.0.2.2
-server  IN      A       192.0.2.3
+@   IN  NS  ns.demo.test.
+ns  IN  A   192.0.2.2
+server  IN  A   192.0.2.3
